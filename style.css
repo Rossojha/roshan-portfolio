@@ -1,0 +1,548 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0e0e0e;
+  color: #fff;
+  overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.logo:hover {
+  color: #9a6aff;
+  text-shadow: 0 0 15px rgba(154, 106, 255, 0.6);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+header nav ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #9a6aff;
+}
+
+body.light-mode header nav ul li a {
+  color: #333;
+}
+
+.dark-toggle {
+  background: none;
+  border: 2px solid #9a6aff;
+  color: #9a6aff;
+  padding: 6px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s;
+}
+
+.dark-toggle:hover {
+  background-color: #9a6aff;
+  color: #fff;
+}
+
+body.light-mode .dark-toggle {
+  border-color: #6a4eff;
+  color: #6a4eff;
+}
+
+.hero-section {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background-text {
+  position: absolute;
+  top: 39px;
+  left: 60px;
+  font-size: 200px;
+  font-weight: 700;
+  color: rgba(154, 106, 255, 0.1); /* Dark mode version: faint purple */
+  letter-spacing: 10px;
+  user-select: none;
+  z-index: 0;
+  pointer-events: none;
+}
+
+body.light-mode .background-text {
+  color: rgba(154, 106, 255, 0.1);  /* Make it fully visible purple in light mode */
+  
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+  z-index: 1;
+}
+
+.hero-text-box {
+  background: rgba(255, 255, 255, 0.1); /* white transparent box on dark mode */
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 500px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4); /* white border in dark mode */
+  transition: background 0.3s, border 0.3s;
+}
+
+body.light-mode .hero-text-box {
+ 
+  border: 1px solid rgba(0, 0, 0, 0.4); /* black border in light mode */
+}
+
+
+.hero-text-box p {
+  font-size: 1.5rem;
+}
+
+.hero-text-box h1 {
+  font-size: 3.5rem;
+}
+
+.hero-text-box h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #f8f8fa;
+  text-shadow: 0 0 8px rgba(154, 106, 255, 0.4); /* soft glow in dark mode */
+}
+
+body.light-mode .hero-text-box h2 {
+  color: #000;
+  text-shadow: none; /* no glow in light mode */
+}
+
+
+.highlight {
+  color: #9a6aff;
+}
+
+.hero-img img {
+  max-width: 400px;
+  border-radius: 0%;
+}
+
+.social-icons {
+  display: flex;
+  gap: 5px;
+  margin-top: 40px;
+  position: relative;
+  top:120px;
+  right:35px;
+}
+.social-icons::before {
+  content: '';
+  position: absolute;
+ left:-210px; /* adjust distance from icons */
+  top: 60%;
+  transform: translateY(-50%);
+  width: 200px; /* length of the horizontal line */
+  height: 0.8px;
+  background-color: white; /* white in dark mode */
+}
+
+body.light-mode .social-icons::before {
+  background-color: black; /* black in light mode */
+}
+.social-icons img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+section {
+  padding: 120px 80px;
+}
+
+section h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+.project-card img {
+  width: 100%;
+  display: block;
+}
+
+.project-card h3 {
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form input,
+form textarea {
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  transition: background 0.3s;
+}
+
+body.light-mode form input,
+body.light-mode form textarea {
+  background: rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+
+form button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  background: #9a6aff;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #7a4eff;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cursor canvas full screen */
+#cursorCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+body.light-mode .logo {
+  text-shadow: 
+    -1px -1px 0 black,  
+     1px -1px 0 black,  
+    -1px  1px 0 black,  
+     1px  1px 0 black;
+}
+.hero-text-box:hover {
+  box-shadow: 0 0 40px rgba(154, 106, 255, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+body.light-mode .hero-text-box:hover {
+  box-shadow: 0 0 40px rgba(106, 78, 255, 0.4);
+}
+@keyframes pulseGlowDark {
+  0% {
+    box-shadow: 0 0 20px rgba(154, 106, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(154, 106, 255, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(154, 106, 255, 0.3);
+  }
+}
+
+@keyframes pulseGlowLight {
+  0% {
+    box-shadow: 0 0 20px rgba(106, 78, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(106, 78, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(106, 78, 255, 0.2);
+  }
+}
+
+.hero-text-box:hover {
+  animation: pulseGlowDark 1.5s infinite;
+}
+
+body.light-mode .hero-text-box:hover {
+  animation: pulseGlowLight 1.5s infinite;
+}
+.typing-text {
+  border-right: 2px solid rgba(255,255,255,0.75);
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+}
+.hero-text-box h3 {
+  font-size: 1.1rem;
+  color: white;
+  margin-top: 30px; /* adjust to push it a bit down */
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.hero-text-box h3 .typing-text {
+  margin-left: 8px;
+  line-height: 1;
+  transform: translateY(0px); /* make sure it stays aligned */
+  white-space: nowrap;
+}
+body.light-mode .hero-text-box h3 {
+  color: #000; /* black in light mode */
+}
+body.light-mode .hero-text-box h3 .typing-text {
+  color: #000; /* black typing text in light mode */
+}
+.hero-text-box h3 .typing-text {
+  color: #fff; /* white in dark mode */
+  text-shadow: 0 0 8px rgba(154, 106, 255, 0.8); /* soft purple glow */
+  transition: text-shadow 0.3s;
+}
+
+body.light-mode .hero-text-box h3 .typing-text {
+  color: #000; /* black in light mode */
+  text-shadow: none; /* remove glow in light mode */
+}
+.hire-me-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.hire-me-btn {
+  display: inline-block;
+  background-color: #9a6aff;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.hire-me-btn:hover {
+  background-color: #7a4eff;
+}
+.hero-img {
+  transform: translateX(-50px); /* Move image 50px to the left */
+}
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+  padding: 100px 50px;
+}
+
+.hero-text-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 500px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-img img {
+  width: 450px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 0;
+  margin-left: -700px; /* move image towards box */
+  margin-top: 20px;    /* move image slightly down */
+}
+.top-line {
+  position: absolute;
+  top: 50px; /* adjust to align with your nav items */
+  right: 0px; /* adjust based on your toggle button placement */
+  width: 70px; /* length of the line, adjust as needed */
+  height: 1px;
+  background-color: white;
+}
+
+.light-mode .top-line {
+  background-color: black;
+}
+.hero-image {
+  border: 4px solid transparent;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #a855f7, #6b21a8) border-box;
+}
+#contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#contact form input, 
+#contact form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#contact form button {
+  background-color: #6C63FF;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+#contact form button:hover {
+  background-color: #4e48c8;
+}
+/* Info box styling */
+/* Positioning the info-box inside the hero section */
+.hero-section {
+  position: relative; /* important for absolute positioning inside */
+}
+
+.info-box {
+  position: absolute;
+  right: 60px;
+  bottom: 100px;
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 20px 25px;
+  max-width: 250px;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+/* Purple color for Quick Stats heading */
+.info-box h3 {
+  color: #a259ff; /* nice soft purple */
+  margin-bottom: 10px;
+}
+
+/* Ensure it stays only on hero - hide by default and show on hero if needed */
+/* Optional: if you want to hide it on scroll, we can use JS later, but it's okay if left visible here. */
+
+.info-box ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.info-box ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+/* Default (dark mode) styles */
+.info-box {
+  color: #fff;
+}
+
+.info-box h3 {
+  color: #a259ff;
+}
+
+/* Light mode styles */
+body.light-mode .info-box {
+  color: #000; /* make all text inside black in light mode */
+}
+
+body.light-mode .info-box h3 {
+  color: #a259ff; /* still keep the "Quick Stats" purple */
+}
+.info-background-text {
+  position: absolute;
+  top: -185px; /* You can adjust with move buttons */
+  right: -60px;
+  font-size: 180px; /* Make it big but not overflow */
+  color: rgba(162, 89, 255, 0.08);
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  z-index: 0;
+  pointer-events: none;
+  transition: top 0.3s ease;
+}
+
+body.light-mode .info-background-text {
+  color: rgba(162, 89, 255, 0.13);
+}
